@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs') %>
+<h2 class="text-center">Menu</h2>
+<main>
+  <div id="menuSide">
+    <form class="text-center" method="POST" action="/checkout">
+      <input id="hidden_list" type="hidden" name="order_input" />
+        <div id="productInfo" class="product">
+          <!-- JQuery will populate the menu items via web API -->
+        </div>
+        <br>
+        <h4>Items in cart: <span id="cartNum"></span></h4>
+        <button id="checkoutButton" class="btn btn-primary">Checkout</button>
+    </form>
+  </div>
+</main>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/localCart.js"></script>
+<script src="/js/menuAPI.js"></script>
+<%- include('partials/footer.ejs') %>

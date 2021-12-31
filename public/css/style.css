@@ -1,0 +1,88 @@
+footer {
+  font-size: 12px;
+}
+.cartImg {
+  width: 300px;
+}
+.cartItem {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.wrapper {
+  border: 5px solid #616161;
+  margin-left: 25%;
+  margin-right: 25%;
+  overflow: hidden;
+  display: flex;
+}
+.leftSide {
+  border-right: 1px solid black;
+}
+.rightSide {
+  padding-left: 20px;
+  vertical-align: bottom;
+  border-left: 2px solid #616161;
+}
+table, #rubric {
+  text-align:left;
+  margin: 0 auto;
+  width:600px;
+}
+#rubric tr, #rubric td {
+  border:1px gray solid;
+  text-align: center;
+  padding:3px;
+}
+
+#productInfo {
+  display: flex;
+  flex-flow: row wrap;
+  /* flex-grow: 5; */
+  flex-shrink: 5;
+  justify-content: center;
+  align-items: flex-start; 
+}
+
+#product {
+  padding: 3em 3em;
+}
+
+#mainNav1{
+color: #616161;
+font-family: 'Yuji Boku', serif;
+}
+#mainNav2{
+/* background-color: #e9fcc0; */
+color: #616161;
+font-family: 'Yuji Boku', serif;
+}
+#mainNav3{
+  background-color: #e9eddf;
+}
+body{
+  /* background-image: url("/img/Sushi_symbol.jpeg");
+  background-repeat: repeat; */
+  background-color: #e9eddf;
+} 
+.greyBorder{
+  border-top: 10px;
+  border-left: 10px;
+  border-right: 10px;
+  border-bottom: 00px;
+  border-color: #fff;
+  border-style: solid;
+}
+#greyColor{
+  background-color: #f8f9fa;
+  border-width: 2px;
+  border-color: #616161;
+}
+
+#textDisplay{
+  color: #616161;
+  font-family: 'Rock Salt', cursive;
+  font-size: 60px;
+}
+img {
+  border-radius: 10%;
+}

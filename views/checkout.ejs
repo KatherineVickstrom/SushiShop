@@ -1,0 +1,129 @@
+<%- include('partials/header.ejs') %>
+<h2 class="text-center">Checkout</h2>
+
+<main id="checkoutMain">
+<div class="wrapper rounded">
+  <div class="leftSide text-center">
+    <div class="itemsSection">
+        <div id="items">
+          <p id="textLeft"><%=message%></p>
+          <% if (typeof errMessage != "undefined") { %>
+            <p class="bg-warning"><%=errMessage%></p>
+          <% } %>
+          <% if (typeof cart != "undefined") { %>
+           <% let i = 0; %>
+           <% cart.forEach(function(value, key) { %>
+              <br />
+              <div>
+                <p class="cartItem"><%=key%></p>
+                <img class="cartImg" src="<%=images[i]%>" />
+                <br />
+                <span class="cartQty">Qty: <%=value%></span> 
+                <br />
+                <span class="cartPrice">$<%=prices[i]%></span>
+                <br />
+              </div>
+              <% i++ %>
+            <% }); %>
+          <% } %>
+        </div>
+      <br>
+      </div>
+      <hr>
+      <div class="subtotalSection">
+        <span id="subtotal">Subtotal: $<%=subtotal%></span>
+        <br />
+        <span id="tax">Tax (10%): $<%=tax%></span>
+        <br />
+      </div>
+      <hr>
+  </div>
+  <div class="rightSide">
+    <form method="POST" action="/confirmation">
+      <p id="creditInfo"><strong>Enter your Credit Card Information</strong></p>
+      
+      <select name="creditCard">
+        <% let selected = ""; %>
+        <% if (typeof creditCardInfo != "undefined") { %>
+          <% selected = creditCardInfo.creditCard %>
+        <% } %> 
+        <option value="">Select One</option>
+        <option value="visa"
+          <% if (selected == "visa") { %>
+            selected
+          <% } %>
+        >Visa</option>
+        <option value="master"
+         <% if (selected == "master") { %>
+            selected
+          <% } %>
+        >Mastercard</option>
+        <option value="express"
+         <% if (selected == "express") { %>
+            selected
+          <% } %>
+        >American Express</option>
+        <option value="discover"
+         <% if (selected == "discover") { %>
+            selected
+          <% } %>
+        >Discover</option>
+      </select>
+      <br /><br>
+      <span id="creditName">Name on Card</span>
+      <input type="text" name="creditCardName" 
+        <% if (typeof creditCardInfo != "undefined") { %>
+          value="<%=creditCardInfo.creditCardName%>"
+        <% } %> 
+      required />
+      <br /><br>
+      <span id="creditNumber">Number on Card</span>
+      <input type="number" name="creditCardNumber" 
+        <% if (typeof creditCardInfo != "undefined") { %>
+          value="<%=creditCardInfo.creditCardNumber%>"
+        <% } %> 
+      required />
+      <br /><br>
+      <span id="creditExp">Expiration Date (mm/yy)</span>
+      <input type="text" name="creditCardExp" 
+        <% if (typeof creditCardInfo != "undefined") { %>
+          value="<%=creditCardInfo.creditCardExp%>"
+        <% } %> 
+      required />
+      <br /><br>
+      <span id="creditZip">Zip Code</span>
+      <input type="number" name="creditCardZip" 
+        <% if (typeof creditCardInfo != "undefined") { %>
+          value="<%=creditCardInfo.creditCardZip%>"
+        <% } %> 
+      required />
+      <br /><br>
+      <input type="checkbox" name="saveCreditCard" id="saveCreditCard" 
+        <%# https://stackoverflow.com/questions/40772321/how-to-present-checkbox-values-in-html-using-ejs-after-extracting-data-from-mo %>
+        <% if (typeof saveCreditCard != "undefined") { %>
+          <% let checked = saveCreditCard ? "checked" : "" %>
+          <%= checked %>
+        <% } %>
+      
+      />
+      <label for="saveCreditCard">Keep on file?</label>
+      <br /><br>
+      <div id="totalSection">
+        <h3>Your Total: $<%=grandTotal%></h3>
+      </div>
+      <a href="/menu" class="btn btn-secondary">Go Back</a>
+      <button class="btn btn-primary" id="submitorder">Place Order!</button>
+    </form>
+  </div>
+</div>
+</main>
+
+
+
+
+
+
+
+
+
+<%- include('partials/footer.ejs') %>

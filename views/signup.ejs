@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+<h2 class="text-center">Sign Up</h2>
+<% if (typeof message != "undefined"){ %>
+  <h5 class="px-5 text-danger"><%=message%></h3>
+<% } %>
+<form method="POST" action="/signup" class="px-5">
+  <div class="form-group">
+    <label for="fName">First Name</label>
+    <input type="text" class="form-control" name="fName" placeholder="Enter first name"><br>
+  </div>
+  <div class="form-group">
+    <label for="lName">Last Name</label>
+    <input type="text" class="form-control" name="lName" placeholder="Enter last name"><br>
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" name="email" placeholder="Enter email"><br>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password"><br>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<%- include('partials/footer.ejs') %>

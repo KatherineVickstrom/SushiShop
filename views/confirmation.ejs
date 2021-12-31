@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+<h2 class="text-center">Thanks for your order! It will be ready for pickup soon!</h2>
+<hr />
+<br />
+<main id="confirmationMain">
+  <div class="text-center">
+  <h2> Details </h2>
+  Order ID: <%= orderId %>
+  <br />
+  Quantity: <%= quantity %>
+  <br />
+  Amount: $<%= amount %>
+  <br />
+  Card Last 4: <%= lastFour %>
+  </div>
+  <br />
+  <hr />
+  <div class="text-center">
+    <h3>Kitty cat says:</h3>
+    <img class="rounded" src="<%=cat%>" width='300'/>
+  </div>
+</main>
+<script>
+  localStorage.removeItem("on_a_roll_sushi");
+</script>
+<%- include('partials/footer.ejs') %>

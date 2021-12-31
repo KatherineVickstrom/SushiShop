@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+
+<% if (typeof auth == "undefined"){ %>
+<h3 class="px-5">Log In</h3>
+<form class="px-5" method="POST" action="/">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input id="greyColor" type="email" class="form-control" name="email" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input id="greyColor" type="password" class="form-control" name="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Log In</button>
+  <div class="pt-2">
+		<p>Don't have an account? <a href="/signup"> Sign Up</a></p>
+	</div>
+</form>
+<% } %>
+<% if (typeof message != "undefined"){ %>
+  <h5 class="px-5 text-danger"><%=message%></h3>
+<% } %>
+<% if (typeof joke != "undefined"){ %>
+  <h5 class="px-5"> Joke of the day: "<%=joke%>" </h5><br>
+<% } %>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" align="center">
+    <div class="carousel-item active">
+      <img id="" class="d-block" src="/img/philly.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block" src="/img/spicy-tuna.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block" src="<%=pic%>" alt="Third slide">
+    </div>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>
